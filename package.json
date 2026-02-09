@@ -1,0 +1,35 @@
+{
+  "name": "clazino-agent-dashboard",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5174 --strictPort",
+    "mock-api": "node server/mock-api.mjs",
+    "build": "npx vue-tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 5000 --strictPort",
+    "postbuild": "node scripts/create-replit-server.cjs",
+    "start": "node dist/index.cjs"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0",
+    "pinia": "^2.1.7",
+    "vue-chartjs": "^5.3.0",
+    "chart.js": "^4.4.2",
+    "@iconify/vue": "^5.0.0",
+    "zod": "^3.23.8",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vue-tsc": "^2.0.6"
+  }
+}

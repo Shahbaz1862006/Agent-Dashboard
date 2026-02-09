@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light (default) */
+  /* Brighter surfaces + readable text (fixes light-mode low contrast) */
+  --background: 210 20% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --muted: 210 16% 93%;
+  /* darker than before so text stays visible in light theme */
+  --muted-foreground: 215 18% 34%;
+  --border: 214 18% 86%;
+  --input: 214 18% 86%;
+  --ring: 142 76% 36%;
+  --primary: 142 76% 36%;
+  --primary-foreground: 0 0% 100%;
+  /* stronger red (avoid washed out / too white feeling) */
+  --destructive: 0 84% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 20 14% 4%;
+  /* Secondary button — Revenue Tracker "View statements" reference (light) */
+  --btn-secondary-bg: #eaedf099;
+  --btn-secondary-bg-hover: #e0e4e8;
+  --btn-secondary-bg-active: #d5dae2;
+  --btn-secondary-fg: #0f1729;
+  --btn-secondary-border: #d5dae2;
+  color-scheme: light;
+}
+
+.dark {
+  /* Soft Dark (charcoal/slate) — NOT pitch black */
+  /* Lift background slightly to reduce “too dark” feeling */
+  --background: 222 32% 10%;
+  --foreground: 210 40% 96%;
+  --card: 222 30% 14%;
+  --card-foreground: 210 40% 96%;
+  --muted: 222 20% 18%;
+  --muted-foreground: 215 18% 72%;
+  --border: 222 18% 22%;
+  --input: 222 18% 22%;
+  --ring: 142 76% 42%;
+  --primary: 142 76% 42%;
+  --primary-foreground: 0 0% 100%;
+  /* deeper red in dark mode */
+  --destructive: 0 84% 54%;
+  --destructive-foreground: 0 0% 100%;
+  --warning: 38 92% 55%;
+  --warning-foreground: 20 14% 4%;
+  /* Secondary button — dark mode */
+  --btn-secondary-bg: #25273a99;
+  --btn-secondary-bg-hover: #2e3442;
+  --btn-secondary-bg-active: #25273acc;
+  --btn-secondary-fg: #ffffff;
+  --btn-secondary-border: #2e3442;
+  color-scheme: dark;
+}
+
+/* Secondary button — Revenue Tracker "View statements" reference, dashboard-wide */
+.btn-variant-secondary,
+button[data-variant="secondary"] {
+  background-color: var(--btn-secondary-bg) !important;
+  color: var(--btn-secondary-fg) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: var(--btn-secondary-border) !important;
+  box-shadow: none !important;
+}
+.btn-variant-secondary:hover:not(:disabled),
+button[data-variant="secondary"]:hover:not(:disabled) {
+  background-color: var(--btn-secondary-bg-hover) !important;
+  border-color: var(--btn-secondary-border) !important;
+}
+.btn-variant-secondary:active:not(:disabled),
+button[data-variant="secondary"]:active:not(:disabled) {
+  background-color: var(--btn-secondary-bg-active) !important;
+  border-color: var(--btn-secondary-border) !important;
+}
+.btn-variant-secondary:disabled,
+button[data-variant="secondary"]:disabled {
+  opacity: 0.6;
+}
+
+html, body {
+  font-family: Poppins, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
