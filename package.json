@@ -12,18 +12,20 @@
     "start": "node dist/index.cjs"
   },
   "dependencies": {
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0",
-    "pinia": "^2.1.7",
-    "vue-chartjs": "^5.3.0",
-    "chart.js": "^4.4.2",
     "@iconify/vue": "^5.0.0",
-    "zod": "^3.23.8",
+    "chart.js": "^4.4.2",
     "clsx": "^2.1.1",
+    "pinia": "^2.1.7",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.4.21",
+    "vue-chartjs": "^5.3.0",
+    "vue-router": "^4.3.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",

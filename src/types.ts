@@ -59,6 +59,8 @@ export type Payout = {
   timeline: { at: string; status: string; note?: string }[];
   /** Message to user when agent declines (required for Declined). */
   declineMessage?: string;
+  actedAt?: string;
+  actedBy?: string;
 };
 
 export type LedgerEntry = {

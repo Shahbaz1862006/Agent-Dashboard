@@ -256,7 +256,7 @@ export function makePayouts(players: Player[]): Payout[] {
       txHash: status === "Approved" ? "0x" + Math.random().toString(16).slice(2, 18) : undefined,
       timeline: [
         { at: requestedAt, status: "Withdrawal requested", note: "Request submitted" },
-        { at: hoursAgo(reqHours - 1), status, note: status === "Approved" ? "Payout executed" : status === "Declined" ? "Declined by agent" : "Escalated to support" },
+        { at: hoursAgo(reqHours - 1), status: status ?? "Pending", note: status === "Approved" ? "Payout executed" : status === "Declined" ? "Declined by agent" : "Escalated to support" },
       ],
     });
   }

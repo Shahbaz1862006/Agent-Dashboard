@@ -1,11 +1,15 @@
 import type { Api } from "./api";
+import type { PlayerActionPayload } from "./api";
 import type {
   Alert,
+  CreateInvitationPayload,
   Goal,
+  Invitation,
   Invite,
   LedgerEntry,
   Payout,
   Player,
+  PlayerFiatDeposit,
   Statement,
   WalletSummary,
   War,
@@ -61,6 +65,18 @@ export function createHttpApi(basePath = "/api"): Api {
     getPlayer(id: string): Promise<Player | null> {
       return get<Player | null>(p(`/players/${encodeURIComponent(id)}`));
     },
+    suspendPlayer(id: string, payload: PlayerActionPayload): Promise<Player> {
+      return post<Player>(p(`/players/${encodeURIComponent(id)}/suspend`), payload);
+    },
+    reactivatePlayer(id: string, payload: PlayerActionPayload): Promise<Player> {
+      return post<Player>(p(`/players/${encodeURIComponent(id)}/reactivate`), payload);
+    },
+    restrictPlayer(id: string, payload: PlayerActionPayload): Promise<Player> {
+      return post<Player>(p(`/players/${encodeURIComponent(id)}/restrict`), payload);
+    },
+    unrestrictPlayer(id: string, payload: PlayerActionPayload): Promise<Player> {
+      return post<Player>(p(`/players/${encodeURIComponent(id)}/unrestrict`), payload);
+    },
     getInvites(): Promise<Invite[]> {
       return get<Invite[]>(p("/invites"));
     },
@@ -74,8 +90,26 @@ export function createHttpApi(basePath = "/api"): Api {
     resendInvite(inviteId: string): Promise<Invite> {
       return post<Invite>(p(`/invites/${encodeURIComponent(inviteId)}/resend`));
     },
+    getInvitations(): Promise<Invitation[]> {
+      return get<Invitation[]>(p("/invitations"));
+    },
+    createInvitation(payload: CreateInvitationPayload): Promise<Invitation> {
+      return post<Invitation>(p("/invitations"), payload);
+    },
     getPayouts(): Promise<Payout[]> {
       return get<Payout[]>(p("/payouts"));
+    },
+    approvePayout(id: string): Promise<Payout> {
+      return post<Payout>(p(`/payouts/${encodeURIComponent(id)}/approve`));
+    },
+    declinePayout(id: string, reason: string): Promise<Payout> {
+      return post<Payout>(p(`/payouts/${encodeURIComponent(id)}/decline`), { reason });
+    },
+    escalatePayout(id: string, payload: { notes: string; category?: string }): Promise<Payout> {
+      return post<Payout>(p(`/payouts/${encodeURIComponent(id)}/escalate`), payload);
+    },
+    getPlayerDepositsSummary(): Promise<PlayerFiatDeposit[]> {
+      return get<PlayerFiatDeposit[]>(p("/player-deposits-summary"));
     },
     getStatements(): Promise<Statement[]> {
       return get<Statement[]>(p("/statements"));

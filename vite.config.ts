@@ -1,20 +1,22 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
+declare const process: { env?: Record<string, string | undefined> };
+
 export default defineConfig({
   base: "./",
   plugins: [vue()],
   server: {
     host: true,
-    port: Number(process.env.PORT) || 5000,
+    port: Number(process.env?.PORT) || 5000,
     strictPort: true,
     allowedHosts: true,
-    hmr: process.env.HMR_CLIENT_PORT
+    hmr: process.env?.HMR_CLIENT_PORT
       ? { clientPort: Number(process.env.HMR_CLIENT_PORT) }
       : true,
     proxy: {
       "/api": {
-        target: process.env.VITE_MOCK_API_TARGET || "http://localhost:3001",
+        target: process.env?.VITE_MOCK_API_TARGET || "http://localhost:3001",
         changeOrigin: true,
       },
     },

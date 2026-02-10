@@ -111,7 +111,7 @@ const agent = computed(() => ({
   email: auth.user?.email ?? AGENT_PERSONA.email,
 }));
 const currentSession = computed(() => AGENT_PERSONA.sessions.find((s) => s.current) ?? AGENT_PERSONA.sessions[0]);
-const twoFaEnabled = ref(AGENT_PERSONA.twoFaEnabled);
+const twoFaEnabled = ref<boolean>(AGENT_PERSONA.twoFaEnabled);
 const otp = ref("");
 
 function formatDateTime(iso: string) {

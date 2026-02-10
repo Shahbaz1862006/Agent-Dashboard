@@ -20,7 +20,7 @@
           <div class="mt-3 flex flex-wrap gap-2">
             <BaseStatusBadge :status="p.kycTier" />
             <BaseStatusBadge :status="p.status" />
-            <BaseStatusBadge :label="`Risk ${p.riskScore}`" :variant="riskVariant(p.riskScore)" />
+            <BaseStatusBadge status="Risk" :label="`Risk ${p.riskScore}`" :variant="riskVariant(p.riskScore)" />
           </div>
         </div>
         <Button variant="secondary" @click="reclaimOpen = true">Credit reclaim</Button>
@@ -179,7 +179,7 @@
           </div>
           <div>
             <label class="text-xs text-muted-foreground">Reclaim amount (USDT)</label>
-            <Input v-model.number="reclaimAmount" type="number" :min="0" :max="p.balanceLocked" placeholder="0" class="mt-1" />
+            <Input v-model.number="reclaimAmount" type="number" :min="0" :max="String(p.balanceLocked)" placeholder="0" class="mt-1" />
           </div>
           <div class="flex justify-end gap-2">
             <Button variant="ghost" @click="reclaimOpen = false">Cancel</Button>

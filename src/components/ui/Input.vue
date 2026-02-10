@@ -14,6 +14,6 @@
 <script setup lang="ts">
 import { cn } from "../../utils/cn";
 
-withDefaults(defineProps<{ type?: string; modelValue?: string }>(), { modelValue: "" });
+withDefaults(defineProps<{ type?: string; modelValue?: string | number }>(), { modelValue: "" });
 const emit = defineEmits<{ "update:modelValue": [value: string] }>();
 </script>

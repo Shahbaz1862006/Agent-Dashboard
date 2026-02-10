@@ -32,7 +32,9 @@ export type Permission =
   | "view_settings"
   | "view_alerts"
   | "suspend_player"
-  | "reactivate_player";
+  | "reactivate_player"
+  | "restrict_player"
+  | "unrestrict_player";
 
 /** Agent has all dashboard permissions except withdraw (future) and manual credit grant. */
 const AGENT_PERMISSIONS: Permission[] = [

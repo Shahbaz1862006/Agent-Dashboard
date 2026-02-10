@@ -1,6 +1,6 @@
 <template>
   <div :class="className">
-    <Select :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
+    <Select :model-value="modelValue" @update:model-value="emit('update:modelValue', ($event as TimeRange))">
       <option value="24H">24H</option>
       <option value="7D">7D</option>
       <option value="30D">30D</option>
